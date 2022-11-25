@@ -23,7 +23,7 @@ hide_menu_style= """
           </style>
           """
 
-engine = create_engine('postgresql+psycopg2://{}:{}@{}/{}'.format(st.secrets["postgres"]['user'],st.secrets["postgres"]['password'],st.secrets["postgres"]['host'],st.secrets["postgres"]['dbname']))
+engine = create_engine('postgresql+psycopg2://{}:%s@{}/{}'.format(st.secrets["postgres"]['user'],st.secrets["postgres"]['host'],st.secrets["postgres"]['dbname']) % quote_plus(st.secrets["postgres"]['password']))
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.

@@ -13,6 +13,7 @@ import sqlalchemy
 import numpy as np
 from io import BytesIO
 from pyxlsb import open_workbook as open_xlsb
+from urllib.parse import quote_plus
 img=Image.open('lo.jfif')
 st.set_page_config(page_title="Dashboard", page_icon=img)
 

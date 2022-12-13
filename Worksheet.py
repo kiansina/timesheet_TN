@@ -97,7 +97,6 @@ if "Confirm" not in st.session_state:
 def to_excel(df):
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
-    df=df.sort_values(by=['data', 'risorsa'])
     df.to_excel(writer, index=False, sheet_name='Sheet1', startrow=1, header=False)
     workbook = writer.book
     worksheet = writer.sheets['Sheet1']

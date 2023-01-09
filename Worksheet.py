@@ -44,7 +44,8 @@ nind=cursor.fetchall()
 sql = """select * from Dash_User"""
 cursor = conn.cursor()
 cursor.execute(sql)
-df=pd.DataFrame(cursor.fetchall(),columns=['ID','User', 'nome',	'Dipartimento',	'Qualifica', 'Tariffa'])
+df=pd.DataFrame(cursor.fetchall(),columns=['ID','User', 'nome',	'Team',	'Qualifica', 'Tariffa'])
+
 
 sql = """select * from Dash_Cl"""
 cursor = conn.cursor()
@@ -141,7 +142,7 @@ if check_password():
 
     if st.session_state["aut"] == 'user':
         DFST=get_data()
-        dfs=df[df['User']==st.session_state["username"]][df.columns[1:]]
+        dfs=df[df['User']==st.session_state["username"]][df.columns[1:-1]]
         st.image(
             #"https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/325/floppy-disk_1f4be.png",
             "https://media-exp1.licdn.com/dms/image/C560BAQE17_4itIWOLw/company-logo_200_200/0/1570546904891?e=2147483647&v=beta&t=w-App-ZgjSHDlEDDFQeNB7XU2L7QgY2EF-vFj2Il8q8",
@@ -228,7 +229,7 @@ if check_password():
         DFST=get_data()
         tab1, tab2 = st.tabs(["My Worksheet", "Weekly quick check"])
         with tab1:
-            dfs=df[df['User']==st.session_state["username"]][df.columns[1:]]
+            dfs=df[df['User']==st.session_state["username"]][df.columns[1:-1]]
             st.image(
                 #"https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/325/floppy-disk_1f4be.png",
                 "https://media-exp1.licdn.com/dms/image/C560BAQE17_4itIWOLw/company-logo_200_200/0/1570546904891?e=2147483647&v=beta&t=w-App-ZgjSHDlEDDFQeNB7XU2L7QgY2EF-vFj2Il8q8",

@@ -135,7 +135,7 @@ for i in range(7):
 dat_op=tuple(C)
 if check_password():
     kos,st.session_state["username"]=check_password()
-    if st.session_state["username"] not in ['Marco_Troisi', 'Antonio_Schiavone', 'Sina_Kian']:
+    if st.session_state["username"] not in ['Marco_Troisi', 'Antonio_Schiavone', 'Sina_Kian', 'Antonio_Schiavone']:
         st.session_state["aut"] = 'user'
     else:
         st.session_state["aut"] = 'sup'

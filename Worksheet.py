@@ -158,7 +158,8 @@ if check_password():
         st.markdown('Please select the **_clients_** you worked for this week.')
         options = st.multiselect(
         '',
-        dg['cliente'],
+        #dg['cliente'],
+        dg[dg['stato']==1]['cliente']
         )
         das= pd.DataFrame(columns=['dat', 'cliente','effort'],index=range(25))
         st.write("")

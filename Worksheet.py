@@ -50,7 +50,7 @@ df=pd.DataFrame(cursor.fetchall(),columns=['ID','User', 'nome',	'Team',	'Qualifi
 sql = """select * from Dash_Cl"""
 cursor = conn.cursor()
 cursor.execute(sql)
-dg=pd.DataFrame(cursor.fetchall(),columns=['ID','cliente', 'attivita',	'Chiave',	'Referente', 'codice'])
+dg=pd.DataFrame(cursor.fetchall(),columns=['ID','cliente', 'attivita',	'Chiave',	'Referente', 'codice','stato'])
 
 def check_password():
     """Returns `True` if the user had a correct password."""
